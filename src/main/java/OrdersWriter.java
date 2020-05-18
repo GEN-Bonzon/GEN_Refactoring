@@ -42,7 +42,7 @@ public class OrdersWriter {
         sb.append(product.getCode());
         sb.append("\", ");
         sb.append("\"color\": \"");
-        sb.append(getColorFor(product));
+        sb.append(product.getColor());
         sb.append("\", ");
 
         if (product.getSize() != Size.SIZE_NOT_APPLICABLE) {
@@ -57,9 +57,5 @@ public class OrdersWriter {
         sb.append("\"currency\": \"");
         sb.append(product.getCurrency());
         sb.append("\"}, ");
-    }
-
-    private String getColorFor(Product product) {
-        return product.getColor().getName();
     }
 }
