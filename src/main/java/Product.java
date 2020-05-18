@@ -31,7 +31,10 @@ public class Product {
         return price.getCurrency();
     }
 
-    public String getContent(StringBuffer sb) {
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
         sb.append("{");
         sb.append("\"code\": \"");
         sb.append(getCode());
