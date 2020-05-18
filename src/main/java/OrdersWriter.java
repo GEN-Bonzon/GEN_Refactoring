@@ -47,7 +47,7 @@ public class OrdersWriter {
 
         if (product.getSize() != Size.SIZE_NOT_APPLICABLE) {
             sb.append("\"size\": \"");
-            sb.append(getSizeFor(product));
+            sb.append(product.getSize());
             sb.append("\", ");
         }
 
@@ -57,10 +57,6 @@ public class OrdersWriter {
         sb.append("\"currency\": \"");
         sb.append(product.getCurrency());
         sb.append("\"}, ");
-    }
-
-    private String getSizeFor(Product product) {
-        return product.getSize().name();
     }
 
     private String getColorFor(Product product) {
