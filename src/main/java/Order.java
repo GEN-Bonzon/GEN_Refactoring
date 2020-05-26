@@ -9,7 +9,7 @@ public class Order {
         this.id = id;
     }
 
-    public int getOrderId() {
+    public int getId() {
         return id;
     }
 
@@ -30,7 +30,7 @@ public class Order {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"id\": ");
-        sb.append(getOrderId());
+        sb.append(getId());
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < getProductsCount(); j++) {
