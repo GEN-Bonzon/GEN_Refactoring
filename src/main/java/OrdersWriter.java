@@ -8,7 +8,7 @@ public class OrdersWriter {
     }
 
     public String getContents() {
-        StringBuffer sb = new StringBuffer("{\"orders\": [");
+        StringBuilder sb = new StringBuilder("{\"orders\": [");
 
         for (Order order : orders) {
             sb.append("{");
