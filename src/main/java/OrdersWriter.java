@@ -1,65 +1,23 @@
-public class OrdersWriter {
-    private Orders orders;
+import java.util.ArrayList;
 
-    public OrdersWriter(Orders orders) {
+public class OrdersWriter {
+    private final ArrayList<Order> orders;
+
+    public OrdersWriter(ArrayList<Order> orders) {
         this.orders = orders;
     }
 
-    public String getContents() {
-        StringBuffer sb = new StringBuffer("{\"orders\": [");
+    public String getJSONContent() {
+        StringBuilder sb = new StringBuilder("{\"orders\": [");
 
-        for (int i = 0; i < orders.getOrdersCount(); i++) {
-            Order order = orders.getOrder(i);
-            sb.append("{");
-            sb.append("\"id\": ");
-            sb.append(order.getOrderId());
-            sb.append(", ");
-            sb.append("\"products\": [");
-            for (int j = 0; j < order.getProductsCount(); j++) {
-                Product product = order.getProduct(j);
-
-                sb.append("{");
-                sb.append("\"code\": \"");
-                sb.append(product.getCode());
-                sb.append("\", ");
-                sb.append("\"color\": \"");
-                sb.append(getColorFor(product));
-                sb.append("\", ");
-
-                if (product.getSize() != Size.SIZE_NOT_APPLICABLE) {
-                    sb.append("\"size\": \"");
-                    sb.append(getSizeFor(product));
-                    sb.append("\", ");
-                }
-
-                sb.append("\"price\": ");
-                sb.append(product.getPrice());
-                sb.append(", ");
-                sb.append("\"currency\": \"");
-                sb.append(product.getCurrency());
-                sb.append("\"}, ");
-            }
-
-            if (order.getProductsCount() > 0) {
-                sb.delete(sb.length() - 2, sb.length());
-            }
-
-            sb.append("]");
-            sb.append("}, ");
+        for (Order order : orders) {
+            sb.append(order);
         }
 
-        if (orders.getOrdersCount() > 0) {
+        if (orders.size() > 0) {
             sb.delete(sb.length() - 2, sb.length());
         }
 
         return sb.append("]}").toString();
-    }
-
-    private String getSizeFor(Product product) {
-        return product.getSize().name();
-    }
-
-    private String getColorFor(Product product) {
-        return product.getColor().getName();
     }
 }

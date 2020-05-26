@@ -1,13 +1,14 @@
 public enum Color {
     NO_COLOR("no color"), YELLOW("yellow"), RED("red"), BLUE("blue");
 
-    private String colorName;
+    private final String colorName;
 
     Color(String name) {
         this.colorName = name;
     }
 
-    public final String getName() {
+    @Override
+    public String toString() {
         return colorName;
     }
 }
