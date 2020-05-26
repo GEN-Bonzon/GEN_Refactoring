@@ -7,7 +7,7 @@ public class OrdersWriter {
         this.orders = orders;
     }
 
-    public String getContents() {
+    public String getJSONContent() {
         StringBuilder sb = new StringBuilder("{\"orders\": [");
 
         for (Order order : orders) {
