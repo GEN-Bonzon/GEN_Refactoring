@@ -1,8 +1,8 @@
 public class Product {
-    private String code;
-    private Color color;
-    private Size size;
-    private Price price;
+    private final String code;
+    private final Color color;
+    private final Size size;
+    private final Price price;
 
     public Product(String code, Color color, Size size, Price price) {
         this.code = code;

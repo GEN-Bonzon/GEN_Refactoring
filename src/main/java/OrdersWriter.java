@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class OrdersWriter {
-    private ArrayList<Order> orders;
+    private final ArrayList<Order> orders;
 
     public OrdersWriter(ArrayList<Order> orders) {
         this.orders = orders;
